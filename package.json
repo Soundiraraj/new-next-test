@@ -1,6 +1,10 @@
 {
   "name": "new-next-test",
   "version": "0.1.0",
+  "engines": {
+    "node": "17.7.2",
+    "npm" :"8.5.2"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
