@@ -5,24 +5,15 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   const [showPosts, setshowPosts] = useState()
-  const apiUrl = "https://redmine.dialedindev.ca/issues.json"
+  const apiUrl = "https://jsonplaceholder.typicode.com/todos/"
   let displayData
 
   async function pullRedmintask() {
-    const response = await fetch(apiUrl, { 
-     method: 'get', 
-     headers: new Headers({
-       'Authorization': 'Basic '+btoa('thangaraj.moorthi:8903833128'), 
-       'Content-Type': 'application/x-www-form-urlencoded'
-     })
-   }
-    )
+    const response = await fetch(apiUrl)
     const responseData = await response.json()
-    displayData = responseData.map(function(task){
+    displayData = responseData.map(function(tudo){
       return (
-        {task.issues.map((r, i) =>
-          <p key={r.project.id}>{r.project.name}</p>
-        )}
+        <p key={tudo.id}>{tudo.title}</p>
         )
     })
     setshowPosts(displayData)
